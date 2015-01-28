@@ -1,0 +1,16 @@
+---
+title: Welcome to Middleman
+---
+/ -string = File.read('/Users/mason/code/archstream/std3/source/data/deal.json')
+/ -deal = JSON.parse(string)["deal"].sample(1) 
+
+
+.container
+  %h1 Middleman Prototype Base is up and running
+  %p Sample data pulled from /data/sample.json
+  .row
+    .col-md-12
+      -data.sample.each do |f|
+        Check it:
+        =f.company.inspect
+        %hr
