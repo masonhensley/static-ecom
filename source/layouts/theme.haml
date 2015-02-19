@@ -1,0 +1,163 @@
+!!!
+%html{:lang => "en"}
+  %head
+    %meta{:charset => "utf-8"}/
+    %meta{:content => "IE=edge", "http-equiv" => "X-UA-Compatible"}/
+    %meta{:content => "width=device-width, initial-scale=1", :name => "viewport"}/
+    %meta{:content => "", :name => "description"}/
+    %meta{:content => "", :name => "author"}/
+    %link{:href => "assets/ico/favicon.ico", :rel => "shortcut icon"}/
+    %title TSM MINI COMMERCE
+    / Bootstrap core CSS
+    / %link{:href => "assets/css/bootstrap.css", :rel => "stylesheet"}/
+    / Custom styles for this template
+    / %link{:href => "assets/css/style.css", :rel => "stylesheet"}/
+    / %link{:href => "assets/css/font-awesome.min.css", :rel => "stylesheet"}/
+    
+    = stylesheet_link_tag "theme/bootstrap", "font-awesome.min", "theme/style", "theme/custom"
+    / Just for debugging purposes. Don't actually copy this line!
+    /[if lt IE 9] <script src="../../assets/js/ie8-responsive-file-warning.js"></script>
+    / HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries
+    /[if lt IE 9]
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    = javascript_include_tag  "https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.js"
+  %body
+    / Fixed navbar
+    .navbar.navbar-default.navbar-fixed-top{:role => "navigation"}
+      .container
+        .navbar-header
+          %button.navbar-toggle{"data-target" => ".navbar-collapse", "data-toggle" => "collapse", :type => "button"}
+            %span.sr-only Toggle navigation
+            %span.icon-bar
+            %span.icon-bar
+            %span.icon-bar
+          %a.navbar-brand{:href => "/"} TSM MINI COMMERCE.
+        .navbar-collapse.collapse.navbar-right
+          %ul.nav.navbar-nav
+            %li
+              %a{:href => "/"} HOME
+            %li
+              %a{:href => "about.html"} ABOUT
+            %li
+              %a{:href => "contact.html"} CONTACT
+            %li.dropdown.active
+              %a.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"}
+                PAGES
+                %b.caret
+              %ul.dropdown-menu
+                %li
+                  %a{:href => "blog.html"} BLOG
+                %li
+                  %a{:href => "single-post.html"} SINGLE POST
+                %li
+                  %a{:href => "portfolio.html"} PORTFOLIO
+                %li
+                  %a{:href => "single-project.html"} SINGLE PROJECT
+        / /.nav-collapse
+    /
+      *****************************************************************************************************************
+      BLUE WRAP
+      *****************************************************************************************************************
+    = yield
+
+  / Bootstrap core JavaScript
+  / ==================================================
+  / Placed at the end of the document so the pages load faster
+  %script{:src => "https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"}
+  = javascript_include_tag  "theme/bootstrap.min"
+  = javascript_include_tag  "theme/retina-1.1.0"
+  = javascript_include_tag  "theme/jquery.hoverdir"
+  = javascript_include_tag  "theme/jquery.hoverex.min"
+  = javascript_include_tag  "theme/jquery.prettyPhoto"
+  = javascript_include_tag  "theme/jquery.isotope.min"
+  = javascript_include_tag  "theme/custom"
+
+  / %script{:src => "assets/js/bootstrap.min.js"}
+  / %script{:src => "assets/js/retina-1.1.0.js"}
+  / %script{:src => "assets/js/jquery.hoverdir.js"}
+  / %script{:src => "assets/js/jquery.hoverex.min.js"}
+  / %script{:src => "assets/js/jquery.prettyPhoto.js"}
+  / %script{:src => "assets/js/jquery.isotope.min.js"}
+  / %script{:src => "assets/js/custom.js"}
+  :javascript
+    // Portfolio
+    (function($) {
+      "use strict";
+      var $container = $('.portfolio'),
+        $items = $container.find('.portfolio-item'),
+        portfolioLayout = 'fitRows';
+        
+        if( $container.hasClass('portfolio-centered') ) {
+          portfolioLayout = 'masonry';
+        }
+            
+        $container.isotope({
+          filter: '*',
+          animationEngine: 'best-available',
+          layoutMode: portfolioLayout,
+          animationOptions: {
+          duration: 750,
+          easing: 'linear',
+          queue: false
+        },
+        masonry: {
+        }
+        }, refreshWaypoints());
+        
+        function refreshWaypoints() {
+          setTimeout(function() {
+          }, 1000);   
+        }
+            
+        $('nav.portfolio-filter ul a').on('click', function() {
+            var selector = $(this).attr('data-filter');
+            $container.isotope({ filter: selector }, refreshWaypoints());
+            $('nav.portfolio-filter ul a').removeClass('active');
+            $(this).addClass('active');
+            return false;
+        });
+        
+        function getColumnNumber() { 
+          var winWidth = $(window).width(), 
+          columnNumber = 1;
+        
+          if (winWidth > 1200) {
+            columnNumber = 5;
+          } else if (winWidth > 950) {
+            columnNumber = 4;
+          } else if (winWidth > 600) {
+            columnNumber = 3;
+          } else if (winWidth > 400) {
+            columnNumber = 2;
+          } else if (winWidth > 250) {
+            columnNumber = 1;
+          }
+            return columnNumber;
+          }       
+          
+          function setColumns() {
+            var winWidth = $(window).width(), 
+            columnNumber = getColumnNumber(), 
+            itemWidth = Math.floor(winWidth / columnNumber);
+            
+            $container.find('.portfolio-item').each(function() { 
+              $(this).css( { 
+              width : itemWidth + 'px' 
+            });
+          });
+        }
+        
+        function setPortfolio() { 
+          setColumns();
+          $container.isotope('reLayout');
+        }
+          
+        $container.imagesLoaded(function () { 
+          setPortfolio();
+        });
+        
+        $(window).on('resize', function () { 
+        setPortfolio();          
+      });
+    })(jQuery);

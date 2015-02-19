@@ -1,0 +1,176 @@
+---
+layout: theme
+---
+-single_item = '/item'
+#blue
+  .container
+    .row
+      %h3 ITEM TITLE.
+    / /row
+  / /container
+/ /blue
+/
+  *****************************************************************************************************************
+  TITLE & CONTENT
+  *****************************************************************************************************************
+.container.mt
+  .row
+    .col-lg-10.col-lg-offset-1.centered
+      #carousel-example-generic.carousel.slide{"data-ride" => "carousel"}
+        / Indicators
+        %ol.carousel-indicators
+          %li.active{"data-slide-to" => "0", "data-target" => "#carousel-example-generic"}
+          %li{"data-slide-to" => "1", "data-target" => "#carousel-example-generic"}
+          %li{"data-slide-to" => "2", "data-target" => "#carousel-example-generic"}
+        / Wrapper for slides
+        .carousel-inner
+          .item.active
+            %img{:alt => "", :src => "/images/portfolio/single1.jpg"}/
+          .item
+            %img{:alt => "", :src => "/images/portfolio/single2.jpg"}/
+          .item
+            %img{:alt => "", :src => "/images/portfolio/single3.jpg"}/
+    .col-lg-5.col-lg-offset-1
+      .spacing
+      %h4 YOUR PROJECT NAME
+      %p Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.
+      %h4 Our Proposal
+      %p It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+    .col-lg-4.col-lg-offset-1
+      .spacing
+      %h4 Project Details
+      .hline
+      %p
+        %b Date:
+        April 18, 2014
+      %p
+        %b Author:
+        Marcel Newman
+      %p
+        %b Categories:
+        Illustration, Web Design, Wordpress
+      %p
+        %b Tagged:
+        Flat, UI, Development
+      %p
+        %b Client:
+        Wonder Corp.
+      %p
+        %b Website:
+        %a{:href => "http://blacktie.co"} http://blacktie.co
+/
+  *****************************************************************************************************************
+  PORTFOLIO SECTION
+  *****************************************************************************************************************
+#portfoliowrap
+  .portfolio-centered
+    %h3 Related Items.
+    .recentitems.portfolio
+      .portfolio-item.graphic-design
+        .he-wrap.tpl6
+          %img{:alt => "", :src => "/images/portfolio/portfolio_9.jpg"}/
+          .he-view
+            .bg.a0{"data-animate" => "fadeIn"}
+              %h3.a1{"data-animate" => "fadeInDown"} A Graphic Design Item
+              %a.dmbutton.a2{"data-animate" => "fadeInUp", "data-rel" => "prettyPhoto", :href => "/images/portfolio/portfolio_09.jpg"}
+                %i.fa.fa-search
+              %a.dmbutton.a2{"data-animate" => "fadeInUp", :href => single_item}
+                %i.fa.fa-link
+            / he bg
+          / he view
+        / he wrap
+      / end col-12
+      .portfolio-item.web-design
+        .he-wrap.tpl6
+          %img{:alt => "", :src => "/images/portfolio/portfolio_02.jpg"}/
+          .he-view
+            .bg.a0{"data-animate" => "fadeIn"}
+              %h3.a1{"data-animate" => "fadeInDown"} A Web Design Item
+              %a.dmbutton.a2{"data-animate" => "fadeInUp", "data-rel" => "prettyPhoto", :href => "/images/portfolio/portfolio_02.jpg"}
+                %i.fa.fa-search
+              %a.dmbutton.a2{"data-animate" => "fadeInUp", :href => single_item}
+                %i.fa.fa-link
+            / he bg
+          / he view
+        / he wrap
+      / end col-12
+      .portfolio-item.graphic-design
+        .he-wrap.tpl6
+          %img{:alt => "", :src => "/images/portfolio/portfolio_03.jpg"}/
+          .he-view
+            .bg.a0{"data-animate" => "fadeIn"}
+              %h3.a1{"data-animate" => "fadeInDown"} A Graphic Design Item
+              %a.dmbutton.a2{"data-animate" => "fadeInUp", "data-rel" => "prettyPhoto", :href => "/images/portfolio/portfolio_03.jpg"}
+                %i.fa.fa-search
+              %a.dmbutton.a2{"data-animate" => "fadeInUp", :href => single_item}
+                %i.fa.fa-link
+            / he bg
+          / he view
+        / he wrap
+      / end col-12
+      .portfolio-item.graphic-design
+        .he-wrap.tpl6
+          %img{:alt => "", :src => "/images/portfolio/portfolio_04.jpg"}/
+          .he-view
+            .bg.a0{"data-animate" => "fadeIn"}
+              %h3.a1{"data-animate" => "fadeInDown"} A Graphic Design Item
+              %a.dmbutton.a2{"data-animate" => "fadeInUp", "data-rel" => "prettyPhoto", :href => "/images/portfolio/portfolio_04.jpg"}
+                %i.fa.fa-search
+              %a.dmbutton.a2{"data-animate" => "fadeInUp", :href => single_item}
+                %i.fa.fa-link
+            / he bg
+          / he view
+        / he wrap
+      / end col-12
+      .portfolio-item.graphic-design
+        .he-wrap.tpl6
+          %img{:alt => "", :src => "/images/portfolio/portfolio_05.jpg"}/
+          .he-view
+            .bg.a0{"data-animate" => "fadeIn"}
+              %h3.a1{"data-animate" => "fadeInDown"} A Graphic Design Item
+              %a.dmbutton.a2{"data-animate" => "fadeInUp", "data-rel" => "prettyPhoto", :href => "/images/portfolio/portfolio_04.jpg"}
+                %i.fa.fa-search
+              %a.dmbutton.a2{"data-animate" => "fadeInUp", :href => single_item}
+                %i.fa.fa-link
+            / he bg
+          / he view
+        / he wrap
+      / end col-12
+    / portfolio
+  / portfolio container
+/ /Portfoliowrap
+/
+  *****************************************************************************************************************
+  FOOTER
+  *****************************************************************************************************************
+#footerwrap
+  .container
+    .row
+      .col-lg-4
+        %h4 About
+        .hline-w
+        %p Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.
+      .col-lg-4
+        %h4 Social Links
+        .hline-w
+        %p
+          %a{:href => "#"}
+            %i.fa.fa-dribbble
+          %a{:href => "#"}
+            %i.fa.fa-facebook
+          %a{:href => "#"}
+            %i.fa.fa-twitter
+          %a{:href => "#"}
+            %i.fa.fa-instagram
+          %a{:href => "#"}
+            %i.fa.fa-tumblr
+      .col-lg-4
+        %h4 Our Bunker
+        .hline-w
+        %p
+          Some Ave, 987,
+          %br/
+          23890, New York,
+          %br/
+          United States.
+          %br/
